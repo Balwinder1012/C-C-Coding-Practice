@@ -23,10 +23,7 @@ public:
 
         }
         dist[1].second = 0;
-        if(dg)for(int i=1;i<=v;i++){
 
-            cout<<dist[i].first<<" "<<dist[i].second<<endl;
-        }
     }
 
     void addEdge(int v1,int v2,int weight)
@@ -181,6 +178,8 @@ public:
         int queCounter = 0;
 
         int heapSize = vertices;
+
+
         while(queCounter!=vertices)
         {
 
