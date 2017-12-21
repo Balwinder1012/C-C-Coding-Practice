@@ -23,6 +23,10 @@ public:
 
         }
         dist[1].second = 0;
+        if(dg)for(int i=1;i<=v;i++){
+
+            cout<<dist[i].first<<" "<<dist[i].second<<endl;
+        }
     }
 
     void addEdge(int v1,int v2,int weight)
@@ -107,8 +111,6 @@ public:
             return;
         }
 
-
-
         if(dist[index].second > wuv + s)
         {
             dist[index].second = wuv +s;
@@ -117,20 +119,20 @@ public:
         }
 
 
-
     }
     int getParent(int i)
     {
-        return (i-1)/2;
+        return (i)/2;
     }
     int hasParent(int i,int n)
     {
-        return (i-1)/2 >=1 ? 1:0;
+        return (i/2) >=1 ? 1:0;
     }
     void heapifyUp(int i,int n)
     {
 
-        int d=i;
+
+
         while(hasParent(i,n))
         {
 
@@ -183,9 +185,10 @@ public:
         {
 
             pair<int,int> *extMin = extractMin(heapSize);
+             heapSize--;
 
             queCounter++;
-            heapSize--;
+
 
             for(vii::iterator it=adjList[extMin->first].begin(); it!=adjList[extMin->first].end(); it++)
             {
@@ -193,6 +196,7 @@ public:
                 relaxEdge(it->first/*v*/,it->second/*w(u,v)*/,extMin->second/*d[s]*/,heapSize);
 
             }
+
 
         }
 
@@ -214,6 +218,7 @@ public:
 
 int main()
 {
+
     graph g(6);
     g.addEdge(1,3,56);
     g.addEdge(1,2,34);
